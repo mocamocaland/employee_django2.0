@@ -1,5 +1,26 @@
 {% extends 'employee/base.html' %}
 
 {% block content %}
-トップページ
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>姓</th>
+            <th>名</th>
+            <th>メール</th>
+            <th>部署</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employee_list %}
+        <tr>
+            <td>{{ employee.pk }}</td>]
+            <td>{{ employee.last_name }}</td>
+            <td>{{ employee.first_name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.department }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
