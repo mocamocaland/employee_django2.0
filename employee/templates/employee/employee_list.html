@@ -1,7 +1,7 @@
 {% extends 'employee/base.html' %}
 
 {% block content %}
-<table class="table table-bordered">
+<table class="table table-bordered mt-5">
     <thead>
         <tr>
             <th>ID</th>
@@ -9,16 +9,18 @@
             <th>名</th>
             <th>メール</th>
             <th>部署</th>
+            <th>部活</th>
         </tr>
     </thead>
     <tbody>
         {% for employee in employee_list %}
         <tr>
-            <td>{{ employee.pk }}</td>]
+            <td>{{ employee.pk }}</td>
             <td>{{ employee.last_name }}</td>
             <td>{{ employee.first_name }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.department }}</td>
+            <th>{% for club in employee.club.all %}{{ club }}{% endfor %}</th>
         </tr>
         {% endfor %}
     </tbody>
