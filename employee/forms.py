@@ -2,7 +2,7 @@ from django import forms
 from .models import Club, Department
 
 
-class SearchForm(form.Form):
+class SearchForm(forms.Form):
     club = forms.ModelChoiceField(
         queryset = Club.objects, label='サークル', required=False)
     

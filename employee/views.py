@@ -1,5 +1,5 @@
 from django.views import generic
-from .form import SearchForm
+from .forms import SearchForm
 from .models import Employee
 
 
@@ -8,7 +8,8 @@ class IndexView(generic.ListView):
 
     def get_context_data(self):
         """テンプレートへ渡す辞書の作成"""
-        form = SearchForm(self.request.GET) # 元の辞書にformを追加 カッコ内に何もなくても問題なし
+        context = super().get_context_data()
+        context['form'] = SearchForm(self.request.GET) # 元の辞書にformを追加 カッコ内に何もなくても問題なし
         return context
 
     def get_queryset(self):
